@@ -66,9 +66,28 @@ void deleteStudent(Student *stuArr, int *stuCount) {
 }
 
 void queryStudent(Student *stuArr, int stuCount) {
-    // TODO：协作同学补充查询学生逻辑
-}
+    if (stuCount == 0) {
+        printf("暂无学生信息！\n");
+        return;
+    }
+    char qId[20];
+    printf("请输入要查询的学生学号：");
+    scanf("%s", qId);
 
+    int i, flag = 0;
+    for (i = 0; i < stuCount; i++) {
+        if (strcmp(stuArr[i].id, qId) == 0) {
+            printf("学号：%s\t姓名：%s\t年龄：%d\t成绩：%.2f\n",
+                   stuArr[i].id, stuArr[i].name, stuArr[i].age, stuArr[i].score);
+            flag = 1;
+            break;
+        }
+    }
+    if (!flag) {
+        printf("未找到该学号的学生！\n");
+    }
+}
+//lry
 void modifyStudent(Student *stuArr, int stuCount) {
     if (stuCount == 0) {
          printf("暂无学生信息，无法修改！\n");
