@@ -62,7 +62,30 @@ stuArr[*stuCount]=s;
  }//周尚霖
 
 void deleteStudent(Student *stuArr, int *stuCount) {
-    // TODO：协作同学补充删除学生逻辑
+        if (*stuCount == 0) {
+        printf("暂无学生信息，无法删除！\n");
+        return;
+    }
+    char delId[20];
+    printf("请输入要删除的学生学号：");
+    scanf("%s", delId);
+
+    int i, j, flag = 0;
+    for (i = 0; i < *stuCount; i++) {
+        if (strcmp(stuArr[i].id, delId) == 0) {
+            // 后面元素前移覆盖
+            for (j = i; j < *stuCount - 1; j++) {
+                stuArr[j] = stuArr[j + 1];
+            }
+            (*stuCount)--;
+            flag = 1;
+            printf("删除学生成功！\n");
+            break;
+        }
+    }
+    if (!flag) {
+        printf("未找到该学号的学生！\n");
+    }
 }
 
 void queryStudent(Student *stuArr, int stuCount) {
@@ -117,5 +140,14 @@ void modifyStudent(Student *stuArr, int stuCount) {
 
 
 void showAllStudents(Student *stuArr, int stuCount) {
-    // TODO：协作同学补充显示所有学生逻辑
+     if (stuCount == 0) {
+        printf("暂无学生信息！\n");
+        return;
+    }
+    printf("===== 所有学生信息 =====\n");
+    printf("学号\t\t姓名\t年龄\t成绩\n");
+    for (int i = 0; i < stuCount; i++) {
+        printf("%s\t%s\t%d\t%.2f\n",
+               stuArr[i].id, stuArr[i].name, stuArr[i].age, stuArr[i].score);
+    }
 }
