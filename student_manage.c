@@ -48,8 +48,18 @@ int main() {
 
 // 空函数骨架（供协作同学实现）
 void addStudent(Student *stuArr, int *stuCount) {
-    // TODO：协作同学补充添加学生逻辑
-}
+   Student s;
+   printf("xuehao:");
+   scanf("%s",s.id);
+   printf("xingming:");
+   scanf("%s",s.name);
+   printf("nianling:");
+   scanf("%d",&s.age);
+   printf("chengji:");
+   scanf("%f",&s,score);
+stuArr[*stuCount]=s;
+(*stuCount)++;
+ }//周尚霖
 
 void deleteStudent(Student *stuArr, int *stuCount) {
     // TODO：协作同学补充删除学生逻辑
