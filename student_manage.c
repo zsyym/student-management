@@ -56,7 +56,7 @@ void addStudent(Student *stuArr, int *stuCount) {
    printf("nianling:");
    scanf("%d",&s.age);
    printf("chengji:");
-   scanf("%f",&s,score);
+   scanf("%f",&s.score);
 stuArr[*stuCount]=s;
 (*stuCount)++;
  }//周尚霖
